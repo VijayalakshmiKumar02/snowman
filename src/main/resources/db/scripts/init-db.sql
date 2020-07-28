@@ -1,0 +1,9 @@
+CREATE USER 'root'@'localhost' IDENTIFIED BY 'm2c-pwd';
+
+GRANT ALL PRIVILEGES ON * . * TO 'root'@'m2c-pwd';
+
+FLUSH PRIVILEGES;
+
+CREATE DATABASE SNOWMAN;
+
+USE SNOWMAN;

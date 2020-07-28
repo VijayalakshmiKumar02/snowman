@@ -1,0 +1,13 @@
+FROM kilna/liquibase-mysql
+
+ENV LIQUIBASE_HOST=ab4727a808d4e11eab34d0664af7615f-36497075.ap-southeast-1.elb.amazonaws.com
+ENV LIQUIBASE_PORT=3306
+ENV LIQUIBASE_DATABASE=snowman
+ENV LIQUIBASE_USERNAME=root
+ENV LIQUIBASE_PASSWORD=password
+ENV LIQUIBASE_CHANGELOG=db/liquibase-changelog-schema.xml
+
+ENV LIQUIBASE_URL="jdbc:mysql://${LIQUIBASE_HOST}:${LIQUIBASE_PORT}/${LIQUIBASE_DATABASE}?createDatabaseIfNotExist=true"
+ENV LIQUIBASE_LOGLEVEL=debug
+
+COPY ../../src/main/resources/db /workspace/db

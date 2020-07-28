@@ -1,0 +1,16 @@
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: snowman-cronjob
+spec:
+  schedule: "*/1 * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+            - name: app
+              image: 161342106387.dkr.ecr.ap-southeast-1.amazonaws.com/snowman-app:latest
+              args: ["mycronjob"]
+
+          restartPolicy: OnFailure

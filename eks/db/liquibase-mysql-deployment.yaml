@@ -1,0 +1,25 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: liquibase-mysql
+  labels:
+    app: liquibase
+spec:
+  replicas: 0
+  selector:
+    matchLabels:
+      app: liquibase
+  template:
+    metadata:
+      labels:
+        app: liquibase
+    spec:
+      containers:
+        - name: liquibase-mysql
+          image: 161342106387.dkr.ecr.ap-southeast-1.amazonaws.com/liquibase-mysql:latest
+          ports:
+            - containerPort: 80
+          args:
+            - liquibase 
+            - update

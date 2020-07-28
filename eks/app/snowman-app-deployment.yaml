@@ -1,0 +1,39 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: snowman-svc
+spec:
+  ports:
+  - port: 8099
+  selector:
+    app: snowman-app
+  type: LoadBalancer
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: 
+    snowman-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: snowman-app
+  template:
+    metadata:
+      labels:
+        app: snowman-app
+    spec:
+      containers:
+      - name: app
+        image: 161342106387.dkr.ecr.ap-southeast-1.amazonaws.com/snowman-app:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8099
+        env:
+          - name: DB_URL
+            value: "jdbc:mysql://ab4727a808d4e11eab34d0664af7615f-36497075.ap-southeast-1.elb.amazonaws.com:3306/snowman?createDatabaseIfNotExist=true&useSSL=false"
+          - name: DB_USER
+            value: root
+          - name: DB_PWD
+            value: password
