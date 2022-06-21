@@ -34,7 +34,7 @@
         <hyperSql.version>2.3.2</hyperSql.version>
         <h2.version>1.4.187</h2.version>
         <derby.version>10.11.1.1</derby.version>
-        <mysql.version>8.0.13</mysql.version>
+        <mysql.version>8.0.28</mysql.version>
         <slf4j.api.version>1.7.25</slf4j.api.version>
         <hibernate.core.version>4.3.10.Final</hibernate.core.version>
         <hibernate.entitymanager.version>4.3.10.Final</hibernate.entitymanager.version>
